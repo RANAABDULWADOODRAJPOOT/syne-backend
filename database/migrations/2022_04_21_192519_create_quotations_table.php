@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateQuotationsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+
+    public function up()
+    {
+        Schema::create('quotations', function (Blueprint $table) {
+            $table->id();
+            $table->dateTime('date');
+            $table->String('company');
+            $table->String('contact');
+            $table->String('description');
+            $table->String('invoice_address');
+            $table->String('site_address');
+            $table->String('assign_user');
+            $table->String('status');
+            $table->String('quote_no');
+            $table->String('linkedjob');
+            $table->String('next');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('quotations');
+    }
+}
